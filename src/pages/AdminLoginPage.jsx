@@ -22,6 +22,7 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
   const navigate = useNavigate()
   const { login } = useAuth()
 
@@ -30,13 +31,16 @@ export default function AdminLoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
+    setError('')
 
     const success = await login(email, password)
     
     if (success) {
       navigate('/admin')
+    } else {
+      setError('Invalid email or password. Please try again.')
     }
-    
+
     setIsLoading(false)
   }
 
@@ -86,6 +90,12 @@ export default function AdminLoginPage() {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
+
+              {error && (
+                <Text color="red.500" fontSize="sm" textAlign="center">
+                  {error}
+                </Text>
+              )}
 
               <Button
                 type="submit"
