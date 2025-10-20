@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
           <Heading>Admin Login</Heading>
           
           <Text color="gray.500" textAlign="center">
-            Sign in to access the admin dashboard
+            Please enter your admin credentials to access the dashboard.
           </Text>
 
           <Box as="form" onSubmit={handleSubmit} width="full">
@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@example.com"
+                  placeholder="Enter your admin email"
                 />
               </FormControl>
 
@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter password"
+                    placeholder="Enter your password"
                   />
                   <InputRightElement width="4.5rem">
                     <Button
@@ -99,8 +99,8 @@ export default function AdminLoginPage() {
             </VStack>
           </Box>
 
-          <Text fontSize="sm" color="gray.500">
-            Demo credentials: admin@example.com / admin123
+          <Text fontSize="sm" color="gray.500" textAlign="center">
+            Only authorized administrators are allowed to access this section.
           </Text>
         </VStack>
       </Box>
